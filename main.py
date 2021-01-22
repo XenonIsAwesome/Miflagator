@@ -100,4 +100,4 @@ def choose_winner(scores):
 
 
 if __name__ == '__main__':
-    sio.run(app, debug=True, use_reloader=True, port=5000)
+    sio.run(app, debug=False, use_reloader=True, port=5000)
