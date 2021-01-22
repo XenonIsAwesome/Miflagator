@@ -60,13 +60,16 @@ def party():
 
 @sio.on('answer')
 def on_answer(data):
-    if session['counter'] <= 9:
+    if session['counter'] <= 10:
         q = session['question']
         q.show_question(data['button'], session['scores'])
 
         session['question_answered'][q] = ''
 
         new_q = random.choice(questions_database)
+        while new_q.content in (q.content for q in session['question_answered'].keys()):
+            new_q = random.choice(questions_database)
+
         session['question'] = new_q
 
         session['counter'] += 1
@@ -95,5 +98,6 @@ def choose_winner(scores):
 
     return random.choice(maxers)
 
+
 if __name__ == '__main__':
-    sio.run(app, debug=False, use_reloader=True, port=5000)
+    sio.run(app, debug=True, use_reloader=True, port=5000)
