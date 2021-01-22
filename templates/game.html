@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="u-clearfix u-sheet u-sheet-1">
+    <p class="u-text u-text-default u-text-1">המפלגטור</p>
+    <div class="u-palette-1-base u-radius-10 u-shape u-shape-round u-shape-1">
+        <p id="question_container" style="text-align:center;font-size:20px" dir="rtl">שאלה 1/10<br>{{ question }}<p>
+    </div>
+    <a href="/" id="yes_button" style="align: center;"
+       class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-btn-1">כן</a>
+    <a href="/" id="no_button" style="align: center;"
+       class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-btn-2">לא</a>
+    <a href="/" id="passive_button" style="align: center;"
+       class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-dark-1 u-radius-50 u-btn-3">ניטרלי</a>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}
