@@ -96,4 +96,4 @@ def choose_winner(scores):
     return random.choice(maxers)
 
 
-sio.run(app, debug=True, use_reloader=True)
+sio.run(app, debug=False, use_reloader=True, port=80, host="0.0.0.0")
