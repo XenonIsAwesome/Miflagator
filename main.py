@@ -60,7 +60,7 @@ def party():
 
 @sio.on('answer')
 def on_answer(data):
-    if session['counter'] <= 10:
+    if session['counter'] <= 9:
         q = session['question']
         q.show_question(data['button'], session['scores'])
 
