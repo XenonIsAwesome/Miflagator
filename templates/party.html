@@ -5,7 +5,7 @@
 {% block content %}
 <section class="u-clearfix u-section-1" id="sec-ecbf">
     <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 style="color:{{ color }};" class="u-text u-text-custom-color-1 u-text-default u-title u-text-1">המפלגה שמתאימה לך היא</h1>
+        <h1 style="color:{{ color }};font-size:2.25rem;margin-right:16px;float:right;font-weight:bold" class="u-text u-text-default u-title">המפלגה שמתאימה לך היא</h1>
         <img src="{{ url_for('static', filename='img/' + party + '.png') }}" alt="" class="u-image u-image-contain u-image-default u-image-1">
     </div>
 </section>
@@ -15,19 +15,16 @@
             {% for question, answer in question_dict.items() %}
             <div class="u-container-style u-list-item u-repeater-item">
                 <div class="u-container-layout u-similar-container u-container-layout-1">
-                    <p class="u-align-right u-text u-text-1">{{ question }}</p>
-                    <p class="u-text u-text-2">
-                        {% if answer == VoteEnum.AGREE %}
-                        <img alt="מסכימה" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/209/thumbs-up-sign_1f44d.png">
-                        {% elif answer == VoteEnum.DISAGREE %}
-                        <img alt="לא מסכימה" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/209/thumbs-down-sign_1f44e.png">
-                        {% elif answer == VoteEnum.PASSIVE %}
-                        <img alt="ניטרלי" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/209/large-blue-circle_1f535.png">
-                        {% else %}
-                        <img src="xx" onerror="javascript:socket.emit('error', {'content', 'couldn\'t load image'})">
-                        {% endif %}
-
-                    </p>
+                    <p dir="rtl" style="font-size:30px;font-weight:bold" class="u-align-right u-text">{{ question }}</p>
+                    {% if answer == VoteEnum.AGREE %}
+                    <img alt="מסכימה" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/209/thumbs-up-sign_1f44d.png">
+                    {% elif answer == VoteEnum.DISAGREE %}
+                    <img alt="לא מסכימה" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/209/thumbs-down-sign_1f44e.png">
+                    {% elif answer == VoteEnum.PASSIVE %}
+                    <img alt="ניטרלי" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/209/large-blue-circle_1f535.png">
+                    {% else %}
+                    <img src="xx" onerror="javascript:socket.emit('error', {'content', 'couldn\'t load image'})">
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}

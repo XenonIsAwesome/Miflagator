@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     socket.on('new_question', data => {
-        question.innerHTML = 'שאלה ' + (data['counter']) + '/10 <br>' + data['content']
+        question.innerHTML = 'שאלה ' + (data['counter']) + '/10 </br></br>' + data['content']
     })
 
     if(document.querySelector("#yes_button") != null){
