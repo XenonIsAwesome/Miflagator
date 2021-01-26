@@ -58,6 +58,11 @@ def party():
     return render_template('party.html', VoteEnum=VoteEnum, color=party_colors[session['win']], party=session['win'], question_dict=answers)
 
 
+@app.route('/bibi')
+def easter_egg():
+    return render_template('bibi.html')
+
+
 @sio.on('answer')
 def on_answer(data):
     if session['counter'] <= 9:
