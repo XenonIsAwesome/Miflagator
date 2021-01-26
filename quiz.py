@@ -33,7 +33,7 @@ class Question:
             self.yes(scores)
         elif answer == 'n':
             self.no(scores)
-        elif answer == 'passive':
+        elif answer == 'p':
             self.passive(scores)
 
     def yes(self, scores):
